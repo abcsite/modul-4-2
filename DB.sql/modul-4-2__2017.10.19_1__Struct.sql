@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Окт 18 2017 г., 12:29
+-- Время создания: Окт 19 2017 г., 12:15
 -- Версия сервера: 5.7.16
 -- Версия PHP: 5.6.29
 
@@ -141,6 +141,19 @@ CREATE TABLE `likes` (
   `like_comment` int(10) UNSIGNED NOT NULL,
   `like_user` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `menu`
+--
+
+CREATE TABLE `menu` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `id_parent` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `menu_name` varchar(255) DEFAULT NULL,
+  `menu_url` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -332,6 +345,12 @@ ALTER TABLE `likes`
   ADD KEY `like_comment` (`like_comment`);
 
 --
+-- Индексы таблицы `menu`
+--
+ALTER TABLE `menu`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `messages`
 --
 ALTER TABLE `messages`
@@ -403,7 +422,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=742;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=942;
 --
 -- AUTO_INCREMENT для таблицы `banners`
 --
@@ -418,12 +437,17 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT для таблицы `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id_comment` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8101;
+  MODIFY `id_comment` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10538;
 --
 -- AUTO_INCREMENT для таблицы `images_of_article`
 --
 ALTER TABLE `images_of_article`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1724;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2232;
+--
+-- AUTO_INCREMENT для таблицы `menu`
+--
+ALTER TABLE `menu`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT для таблицы `messages`
 --
